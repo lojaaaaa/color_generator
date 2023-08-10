@@ -1,11 +1,15 @@
 .card{
+  
   display: flex;
   flex-direction: column;
   gap: 25px;
   max-width: 300px;
   transform: scale(1);
-  transition: all .3s ease;
+  transition: all .5s ease;
   padding-bottom: 15px;
+  &:hover{
+    transform: scale(1.05); 
+  }
   .body{
     
     cursor: pointer;
@@ -24,8 +28,10 @@
       color: white;
       font-size: 24px;
       opacity: .8;
+      pointer-events: none;
+      user-select: none;
     }
-    
+
 
   }
 
@@ -41,9 +47,7 @@
 
       border-radius: 6px;
     }
-    &:hover{
-      transform: scale(1.05); 
-    }
+
   }
 
 
