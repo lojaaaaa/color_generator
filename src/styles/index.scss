@@ -10,3 +10,54 @@ a{
 ul{
   list-style: none;
 }
+.container{
+  margin: 0 auto;
+  max-width: 1230px;
+  padding: 0 15px;
+}
+
+#root{
+  height: 100vh;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+}
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.main{
+  flex: 1 0 100%;
+  padding-top: 200px;
+}
+footer{
+  flex: 0 0 auto;
+}
+
+
+.header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(205, 205, 205, 0.19);
+}
+.header__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+}
+.nav__menu{
+  display: flex;
+  gap: 25px;
+}
+.nav__menu-link{
+  font-size: 16px;
+}
