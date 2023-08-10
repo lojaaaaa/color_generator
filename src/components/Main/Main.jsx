@@ -5,6 +5,7 @@ function Main() {
     <main className='main'>
       <div className="main__container container">
         контент
+        
       </div>
     </main>
   )
