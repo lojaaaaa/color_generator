@@ -9,7 +9,6 @@ function Main({generateRandomColor}) {
         <div className="cards">
           <Card generateRandomColor={generateRandomColor}/>
           <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
         </div>
 
       </div>
