@@ -10,6 +10,10 @@ function Home({generateRandomColor}) {
           <Card generateRandomColor={generateRandomColor}/>
           <Card generateRandomColor={generateRandomColor}/>
           <Card generateRandomColor={generateRandomColor}/>
+          <Card generateRandomColor={generateRandomColor}/>
+          <Card generateRandomColor={generateRandomColor}/>
+          <Card generateRandomColor={generateRandomColor}/>
+          <Card generateRandomColor={generateRandomColor}/>
         </div>
     </>
   )
