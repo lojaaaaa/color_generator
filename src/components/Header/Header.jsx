@@ -8,13 +8,13 @@ function Header() {
         <nav className="nav">
           <ul className="nav__menu">
             <li className="nav__menu-item">
-              <a href="#" className="nav__menu-link">О нас</a>
+              <a href="#" className="nav__menu-link">Карточки</a>
             </li>
             <li className="nav__menu-item">
-              <a href="#" className="nav__menu-link">Новые возможности</a>
+              <a href="#" className="nav__menu-link">Создать карточку</a>
             </li>
             <li className="nav__menu-item">
-              <a href="#" className="nav__menu-link">Вход</a>
+              <a href="#" className="nav__menu-link">Информация</a>
             </li>
           </ul>
         </nav>
