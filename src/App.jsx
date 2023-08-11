@@ -1,6 +1,10 @@
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Info from "./pages/Info/Info";
 
 function App() {
 
@@ -20,7 +24,16 @@ function App() {
   return (
     <div className="wrapper">
       <Header/>
-      <Main generateRandomColor={generateRandomColor}/>
+      <main className="main">
+        <div className="main__container container">
+          <Routes>
+            <Route path='/' element={<Home generateRandomColor={generateRandomColor}/>}/>
+            <Route path='/create' element={<Create />}/>
+            <Route path='/info' element={<Info />}/>
+          </Routes>
+        </div>
+      </main>
+
       <Footer />
     </div>
   );

@@ -1,10 +1,9 @@
 import React from 'react'
-import Card from '../Card/Card'
+import Card from '../components/Card/Card'
 
-function Main({generateRandomColor}) {
+function Home({generateRandomColor}) {
   return (
-    <main className='main'>
-      <div className="main__container container">
+    <>
         <h1 className='title'>Карточки</h1>
         <div className="cards">
           <Card generateRandomColor={generateRandomColor}/>
@@ -12,9 +11,8 @@ function Main({generateRandomColor}) {
           <Card generateRandomColor={generateRandomColor}/>
           <Card generateRandomColor={generateRandomColor}/>
         </div>
-      </div>
-    </main>
+    </>
   )
 }
 
-export default Main
+export default Home
