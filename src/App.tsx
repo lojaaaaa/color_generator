@@ -6,7 +6,6 @@ import { Route, Routes } from 'react-router-dom';
 import Create from './pages/Create/Create';
 import Info from './pages/Info/Info';
 import Converter from './pages/Converter/Converter';
-import { updateCardsLocalStorage } from './utils/localStorageUtils';
 
 export interface ICard {
   id: number;
@@ -15,6 +14,16 @@ export interface ICard {
 }
 
 const App: FC = () => {
+
+  const [cards, setCards] = useState<ICard[]>([])
+
+  useEffect(() : void => {
+    const storedCards = localStorage.getItem("taskItems");
+    if (storedCards !== null) {
+      const parsedCards = JSON.parse(storedCards) as ICard[];
+      setCards(parsedCards);
+    }
+  }, [])
 
   const generateRandomColor = (): string => {
     const hexCode: string = '0123456789ABCDEF'
@@ -25,21 +34,9 @@ const App: FC = () => {
     return '#' + color
   }
 
-  const [cards, setCards] = useState<ICard[]>([])
-  const [card, setCard] = useState<ICard>({id: cards.length, color: '', isOpened: true})
-
-  useEffect(() : void => {
-    const storedCards = localStorage.getItem("taskItems");
-    if (storedCards !== null) {
-      const parsedCards = JSON.parse(storedCards) as ICard[];
-      setCards(parsedCards);
-    }
-  }, [])
-
   const addNewCard = (card: ICard): void =>{
     setCards([...cards, card])
   }
-
 
 
   return (
