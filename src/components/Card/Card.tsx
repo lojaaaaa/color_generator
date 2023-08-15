@@ -37,6 +37,10 @@ const Card: FC<Props> = ({generateRandomColor, color, isOpened, card, cards, id}
     const updateCards = cards.map(card => card.id === id ? updateCard : card)
     updateCardsLocalStorage(updateCards)
   } 
+  const copyToСlipboard = (e: React.MouseEvent<HTMLButtonElement>): void => { 
+    navigator.clipboard.writeText(e.currentTarget.innerText)
+  }
+
 
   return (
 
@@ -45,7 +49,7 @@ const Card: FC<Props> = ({generateRandomColor, color, isOpened, card, cards, id}
         <p className={styles.text}>Tap here</p>
       </div>
       <div className={styles.buttons}>
-        <button className={styles.button}>{colorCard}</button>
+        <button onClick={copyToСlipboard} className={styles.button}>{colorCard}</button>
         <button 
         onClick={onClickButton} 
         className={styles.button}>

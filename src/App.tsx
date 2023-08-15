@@ -29,7 +29,7 @@ const App: FC = () => {
 
   const [cards, setCards] = useState<ICard[]>([])
 
-  useEffect(()=>{
+  useEffect(() : void => {
     const storedCards = localStorage.getItem("taskItems");
     if (storedCards !== null) {
       const parsedCards = JSON.parse(storedCards) as ICard[];
