@@ -14,6 +14,8 @@ const Home: FC<Props> = ({generateRandomColor, cards}) => {
         <div className="cards">
           {cards.map(card => <Card 
             key={card.id} 
+            id={card.id}
+            cards={cards}
             color={card.color}
             card={card}
             isOpened={card.isOpened}

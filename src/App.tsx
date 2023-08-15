@@ -24,14 +24,8 @@ const App: FC = () => {
     }
     return '#' + color
   }
-  
-  updateCardsLocalStorage([
-    {id: 1, color: '#8EF664', isOpened: true},
-    {id: 2, color: '#8EF664', isOpened: true},
-    {id: 3, color: '#8EF664', isOpened: true},
-    {id: 4, color: '#8EF664', isOpened: false},
-    {id: 5, color: '#8EF664', isOpened: true},
-  ])
+
+
 
   const [cards, setCards] = useState<ICard[]>([])
 
