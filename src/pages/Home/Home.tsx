@@ -1,23 +1,23 @@
 import React, { FC } from 'react'
 import Card from '../../components/Card/Card'
+import { ICard } from '../../App'
 
 interface Props {
-  generateRandomColor: () => string
+  generateRandomColor: () => string,
+  cards: ICard[]
 }
 
-const Home: FC<Props> = ({generateRandomColor}) => {
+const Home: FC<Props> = ({generateRandomColor, cards}) => {
   return (
     <>
         <h1 className='title'>Карточки</h1>
         <div className="cards">
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
-          <Card generateRandomColor={generateRandomColor}/>
+          {cards.map(card => <Card 
+            key={card.id} 
+            color={card.color}
+            card={card}
+            isOpened={card.isOpened}
+            generateRandomColor={generateRandomColor}/>)}
         </div>
     </>
   )
