@@ -18,6 +18,7 @@ const Card: FC<Props> = ({generateRandomColor, color, isOpened, card}) => {
   const onClickCard = (event: React.MouseEvent<HTMLDivElement>):void => {
     const newColor = generateRandomColor()
     if(isOpenedCard){
+      
       setColorCard(newColor)
       card.color = newColor
       event.currentTarget.style.background = card.color

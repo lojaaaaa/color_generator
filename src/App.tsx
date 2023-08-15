@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Footer from './components/Footer.tsx/Footer';
@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Create from './pages/Create/Create';
 import Info from './pages/Info/Info';
 import Converter from './pages/Converter/Converter';
+import { updateCardsLocalStorage } from './utils/localStorageUtils';
 
 export interface ICard {
   id: number;
@@ -23,14 +24,25 @@ const App: FC = () => {
     }
     return '#' + color
   }
-
-  const [cards, setCards] = useState<ICard[]>([
+  
+  updateCardsLocalStorage([
     {id: 1, color: '#8EF664', isOpened: true},
     {id: 2, color: '#8EF664', isOpened: true},
     {id: 3, color: '#8EF664', isOpened: true},
     {id: 4, color: '#8EF664', isOpened: false},
     {id: 5, color: '#8EF664', isOpened: true},
   ])
+
+  const [cards, setCards] = useState<ICard[]>([])
+
+  useEffect(()=>{
+    const storedCards = localStorage.getItem("taskItems");
+    if (storedCards !== null) {
+      const parsedCards = JSON.parse(storedCards) as ICard[];
+      setCards(parsedCards);
+    }
+  }, [])
+
 
   return (
     <div className="wrapper">
