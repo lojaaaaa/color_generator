@@ -25,9 +25,8 @@ const App: FC = () => {
     return '#' + color
   }
 
-
-
   const [cards, setCards] = useState<ICard[]>([])
+  const [card, setCard] = useState<ICard>({id: cards.length, color: '', isOpened: true})
 
   useEffect(() : void => {
     const storedCards = localStorage.getItem("taskItems");
@@ -37,6 +36,11 @@ const App: FC = () => {
     }
   }, [])
 
+  const addNewCard = (card: ICard): void =>{
+    setCards([...cards, card])
+  }
+
+
 
   return (
     <div className="wrapper">
@@ -44,8 +48,12 @@ const App: FC = () => {
       <main className="main">
         <div className="main__container container">
           <Routes>
-            <Route path='/' element={<Home cards={cards} generateRandomColor={generateRandomColor}/>}></Route>
-            <Route path='/create' element={<Create/>}></Route>
+            <Route 
+              path='/' 
+              element=
+              {<Home cards={cards} generateRandomColor={generateRandomColor}/>}>
+            </Route>
+            <Route path='/create' element={<Create cards={cards} addNewCard={addNewCard}/>}></Route>
             <Route path='/info' element={<Info/>}></Route>
             <Route path='/converter' element={<Converter />}></Route>
           </Routes>
