@@ -27,7 +27,7 @@ const App: FC = () => {
   }, [])
 
   const generateRandomColor = (): string => {
-    const hexCode: string = '0123456789ABCDEF'
+    const hexCode = '0123456789ABCDEF'
     let color: string = ''
     for (let i = 0; i < 6; i++){
       color += hexCode[Math.floor(Math.random() * hexCode.length)]
@@ -39,6 +39,7 @@ const App: FC = () => {
     setCards([...cards, card])
     updateCardsLocalStorage([...cards, card])
   }
+
   const removeCard = (card: ICard): void =>{
     const updateCards = cards.filter(c => c.id !== card.id)
     setCards(updateCards)
@@ -63,7 +64,7 @@ const App: FC = () => {
             </Route>
             <Route path='/create' element={<Create cards={cards} addNewCard={addNewCard}/>}></Route>
             <Route path='/info' element={<Info/>}></Route>
-            <Route path='/converter' element={<Converter />}></Route>
+            <Route path='/converter' element={<Converter/>}></Route>
           </Routes>
         </div>
       </main>

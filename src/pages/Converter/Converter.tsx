@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react'
 import ConverterItem from '../../components/ConverterItem/ConverterItem'
 import style from './Converter.module.scss'
 
-interface Props {}
 
-const Converter: FC<Props> = ({}) => {
+
+const Converter: FC = () => {
 
   function hexToRGB(hex: string, alpha?: string): string {
     let result = ''

@@ -26,7 +26,7 @@ const Card: FC<Props> = ({generateRandomColor, card, cards, setCards, removeCard
     setCards(updatedCards)
   }
 
-  const onClickCard = (): void => {
+  const onClickCard = (event: React.MouseEvent<HTMLDivElement>): void => {
     const newColor = generateRandomColor()
     if(isOpenedCard){
 
@@ -35,7 +35,8 @@ const Card: FC<Props> = ({generateRandomColor, card, cards, setCards, removeCard
 
       // event: React.MouseEvent<HTMLDivElement>
       // event.currentTarget.style.background = newColor
-      // event.target.style.background = color 
+      // console.log(event.target)
+      // event.target.style.background = newColor 
     }
   }
 

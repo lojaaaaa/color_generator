@@ -23,7 +23,7 @@ const ConverterItem: FC<Props> = ({title, hexToRGB}) => {
   }
 
   return (
-    <form className={style.form} action="" onSubmit={(e): void => e.preventDefault()}>
+    <form className={style.form} onSubmit={(e): void => e.preventDefault()}>
       <h1 className='title'>{title}</h1>
       <div className={style.block}>
         <input
@@ -33,7 +33,7 @@ const ConverterItem: FC<Props> = ({title, hexToRGB}) => {
           type="text" 
           placeholder='HEX'/>
         <button onClick={onClick} className={style.button}>Конвертировать</button>
-        <input value={colorOut} className={style.color} type="text" placeholder='RGB'/>
+        <input defaultValue={colorOut} className={style.color} type="text" placeholder='RGB'/>
       </div>
 
     </form>
