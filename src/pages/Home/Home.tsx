@@ -4,10 +4,11 @@ import { ICard } from '../../App'
 
 interface Props {
   generateRandomColor: () => string,
-  cards: ICard[]
+  cards: ICard[],
+  setCards: React.Dispatch<React.SetStateAction<ICard[]>>
 }
 
-const Home: FC<Props> = ({generateRandomColor, cards}) => {
+const Home: FC<Props> = ({generateRandomColor, cards, setCards}) => {
   return (
     <>
         <h1 className='title'>Карточки</h1>
@@ -19,6 +20,7 @@ const Home: FC<Props> = ({generateRandomColor, cards}) => {
             color={card.color}
             card={card}
             isOpened={card.isOpened}
+            setCards={setCards}
             generateRandomColor={generateRandomColor}/>)}
         </div>
     </>

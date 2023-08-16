@@ -10,33 +10,39 @@ interface Props {
   isOpened: boolean,
   card: ICard,
   cards: ICard[],
-  id: number
+  id: number,
+  setCards: React.Dispatch<React.SetStateAction<ICard[]>>
 }
 
-const Card: FC<Props> = ({generateRandomColor, color, isOpened, card, cards, id}) => {
+const Card: FC<Props> = ({generateRandomColor, card, cards, setCards}) => {
 
-  const [colorCard, setColorCard] = useState<string>(color)
-  const [isOpenedCard, setIsOpenedCard] = useState<boolean>(isOpened)
+  const [colorCard, setColorCard] = useState<string>(card.color)
+  const [isOpenedCard, setIsOpenedCard] = useState<boolean>(card.isOpened)
 
-  const onClickCard = (event: React.MouseEvent<HTMLDivElement>):void => {
+  const updateCards = (updatedCard: ICard): void => {
+    const updatedCards = cards.map((c) => (c.id === updatedCard.id ? updatedCard : c));
+    updateCardsLocalStorage(updatedCards);
+    setCards(updatedCards)
+  }
+
+  const onClickCard = (): void => {
     const newColor = generateRandomColor()
     if(isOpenedCard){
-      setColorCard(newColor)
-      
-      const updateCard = {...card, color: newColor}
-      const updateCards = cards.map(card => card.id === id ? updateCard : card)
-      updateCardsLocalStorage(updateCards)
 
-      event.currentTarget.style.background = newColor
+      setColorCard(newColor)
+      updateCards({...card, color: newColor})
+
+      // event: React.MouseEvent<HTMLDivElement>
+      // event.currentTarget.style.background = newColor
       // event.target.style.background = color 
     }
   }
+
   const onClickButton = (): void =>{
     setIsOpenedCard(!isOpenedCard)
-    const updateCard = {...card, isOpened: !isOpenedCard}
-    const updateCards = cards.map(card => card.id === id ? updateCard : card)
-    updateCardsLocalStorage(updateCards)
+    updateCards({...card, isOpened: !isOpenedCard})
   } 
+
   const copyToСlipboard = (e: React.MouseEvent<HTMLButtonElement>): void => { 
     navigator.clipboard.writeText(e.currentTarget.innerText)
   }
@@ -45,7 +51,7 @@ const Card: FC<Props> = ({generateRandomColor, color, isOpened, card, cards, id}
   return (
 
     <div className={styles.card}>
-      <div onClick={onClickCard} style={{background: `${color}`}} className={styles.body}>
+      <div onClick={onClickCard} style={{background: `${colorCard}`}} className={styles.body}>
         <p className={styles.text}>Tap here</p>
       </div>
       <div className={styles.buttons}>

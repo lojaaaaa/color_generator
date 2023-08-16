@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Create from './pages/Create/Create';
 import Info from './pages/Info/Info';
 import Converter from './pages/Converter/Converter';
+import { updateCardsLocalStorage } from './utils/localStorageUtils';
 
 export interface ICard {
   id: number;
@@ -36,6 +37,7 @@ const App: FC = () => {
 
   const addNewCard = (card: ICard): void =>{
     setCards([...cards, card])
+    updateCardsLocalStorage([...cards, card])
   }
 
 
@@ -48,7 +50,7 @@ const App: FC = () => {
             <Route 
               path='/' 
               element=
-              {<Home cards={cards} generateRandomColor={generateRandomColor}/>}>
+              {<Home cards={cards} setCards={setCards} generateRandomColor={generateRandomColor}/>}>
             </Route>
             <Route path='/create' element={<Create cards={cards} addNewCard={addNewCard}/>}></Route>
             <Route path='/info' element={<Info/>}></Route>
