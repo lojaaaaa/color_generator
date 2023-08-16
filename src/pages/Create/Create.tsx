@@ -22,6 +22,7 @@ const Create: FC<Props> =  ({addNewCard, cards}) => {
       isOpened: true
     }
     addNewCard(card)
+    setColor('')
   }
 
   return (
