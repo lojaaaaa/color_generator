@@ -39,6 +39,11 @@ const App: FC = () => {
     setCards([...cards, card])
     updateCardsLocalStorage([...cards, card])
   }
+  const removeCard = (card: ICard): void =>{
+    const updateCards = cards.filter(c => c.id !== card.id)
+    setCards(updateCards)
+    updateCardsLocalStorage(updateCards)
+  }
 
 
   return (
@@ -50,7 +55,11 @@ const App: FC = () => {
             <Route 
               path='/' 
               element=
-              {<Home cards={cards} setCards={setCards} generateRandomColor={generateRandomColor}/>}>
+              {<Home 
+                cards={cards} 
+                setCards={setCards} 
+                removeCard={removeCard}
+                generateRandomColor={generateRandomColor}/>}>
             </Route>
             <Route path='/create' element={<Create cards={cards} addNewCard={addNewCard}/>}></Route>
             <Route path='/info' element={<Info/>}></Route>

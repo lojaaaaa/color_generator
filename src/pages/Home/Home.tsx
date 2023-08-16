@@ -5,10 +5,11 @@ import { ICard } from '../../App'
 interface Props {
   generateRandomColor: () => string,
   cards: ICard[],
-  setCards: React.Dispatch<React.SetStateAction<ICard[]>>
+  setCards: React.Dispatch<React.SetStateAction<ICard[]>>,
+  removeCard: (card: ICard) => void
 }
 
-const Home: FC<Props> = ({generateRandomColor, cards, setCards}) => {
+const Home: FC<Props> = ({generateRandomColor, cards, setCards, removeCard}) => {
   return (
     <>
         <h1 className='title'>Карточки</h1>
@@ -21,6 +22,7 @@ const Home: FC<Props> = ({generateRandomColor, cards, setCards}) => {
             card={card}
             isOpened={card.isOpened}
             setCards={setCards}
+            removeCard={removeCard}
             generateRandomColor={generateRandomColor}/>)}
         </div>
     </>

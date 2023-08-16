@@ -11,10 +11,11 @@ interface Props {
   card: ICard,
   cards: ICard[],
   id: number,
-  setCards: React.Dispatch<React.SetStateAction<ICard[]>>
+  setCards: React.Dispatch<React.SetStateAction<ICard[]>>,
+  removeCard: (card: ICard) => void
 }
 
-const Card: FC<Props> = ({generateRandomColor, card, cards, setCards}) => {
+const Card: FC<Props> = ({generateRandomColor, card, cards, setCards, removeCard}) => {
 
   const [colorCard, setColorCard] = useState<string>(card.color)
   const [isOpenedCard, setIsOpenedCard] = useState<boolean>(card.isOpened)
@@ -47,6 +48,9 @@ const Card: FC<Props> = ({generateRandomColor, card, cards, setCards}) => {
     navigator.clipboard.writeText(e.currentTarget.innerText)
   }
 
+  const onRemoveCard = (): void =>{
+    removeCard(card)
+  }
 
   return (
 
@@ -62,7 +66,7 @@ const Card: FC<Props> = ({generateRandomColor, card, cards, setCards}) => {
           {isOpenedCard ? "Открыто" : "Закрыто"
         }</button>
       </div>
-      <button className={styles.remove}>Удалить</button>
+      <button onClick={onRemoveCard} className={styles.remove}>Удалить</button>
     </div>
 
   )
