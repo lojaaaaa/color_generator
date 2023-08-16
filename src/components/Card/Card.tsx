@@ -62,6 +62,7 @@ const Card: FC<Props> = ({generateRandomColor, card, cards, setCards}) => {
           {isOpenedCard ? "Открыто" : "Закрыто"
         }</button>
       </div>
+      <button className={styles.remove}>Удалить</button>
     </div>
 
   )
