@@ -21,8 +21,13 @@ const Create: FC<Props> =  ({addNewCard, cards}) => {
       color: color ? color : '#BEBEBE',
       isOpened: true
     }
-    addNewCard(card)
-    setColor('')
+    if(card.color.length >= 6){
+      addNewCard(card)
+      setColor('')
+    }
+    else{
+      setColor('Ошибка ввода')
+    }
   }
 
   return (
