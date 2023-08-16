@@ -10,7 +10,6 @@ interface Props {
 const Create: FC<Props> =  ({addNewCard, cards}) => {
 
   const [color, setColor] = useState<string>('')
-
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void=>{
     setColor(event.target.value)
   }
