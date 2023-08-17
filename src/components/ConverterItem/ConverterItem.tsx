@@ -23,16 +23,19 @@ const ConverterItem: FC<Props> = ({title, hexToRGB}) => {
   }
 
   return (
-    <form className={style.form} action="" onSubmit={(e): void => e.preventDefault()}>
+    <form className={style.form} onSubmit={(e): void => e.preventDefault()}>
       <h1 className='title'>{title}</h1>
-      <input
-        onChange={onChange} 
-        value={colorIn} 
-        className={style.color} 
-        type="text" 
-        placeholder='HEX'/>
-      <button onClick={onClick} className={style.button}>Конвертировать</button>
-      <input value={colorOut} className={style.color} type="text" placeholder='RGB'/>
+      <div className={style.block}>
+        <input
+          onChange={onChange} 
+          value={colorIn} 
+          className={style.color} 
+          type="text" 
+          placeholder='HEX'/>
+        <button onClick={onClick} className={style.button}>Конвертировать</button>
+        <input defaultValue={colorOut} className={style.color} type="text" placeholder='RGB'/>
+      </div>
+
     </form>
   )
 }

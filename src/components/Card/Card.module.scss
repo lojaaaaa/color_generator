@@ -16,6 +16,7 @@
     cursor: pointer;
     position: relative;
     background-color: rgb(190, 190, 190);
+    background-color: #bebebe;
     min-height: 400px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -32,6 +33,7 @@
       pointer-events: none;
       user-select: none;
     }
+
 
 
   }
@@ -55,5 +57,17 @@
 
   }
 
+  .remove{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    cursor: pointer;
+    padding: 15px 5px;
+    border: 0;
+    background-color: #e86796;
+    color: rgb(255, 255, 255);
+    font-size: 16px; 
+    border-radius: 6px;
+  }
 
 }
