@@ -10,7 +10,7 @@
 
 <br>
 
-In the project directory, you can run:
+Запуск:
 
 ### `npm start`
 
