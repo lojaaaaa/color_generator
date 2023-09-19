@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
-import Footer from './components/Footer.tsx/Footer';
+import Footer from './components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Create from './pages/Create/Create';
 import Info from './pages/Info/Info';
